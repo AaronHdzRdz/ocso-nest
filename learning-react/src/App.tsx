@@ -1,11 +1,11 @@
 import './App.css'
-import Fetched from './exercises/05-fetched'
+import FetchedTarea from './exercises/06-fetchedTarea'
 
 function App() {
 
   return (
     <>
-<Fetched/>
+<FetchedTarea/>
 
     </>
   )

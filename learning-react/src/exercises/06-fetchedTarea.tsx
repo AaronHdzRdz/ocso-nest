@@ -12,7 +12,7 @@ export interface Result {
     url: string;
 }
 
-export default function Fetched() {
+export default function FetchedTarea() {
     const [data, setData] = useState<PokeResponse>();
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
