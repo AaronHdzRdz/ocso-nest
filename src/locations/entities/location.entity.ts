@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Employee } from 'src/employees/entities/employee.entity';
-import { Manager } from 'src/managers/entities/manager.entity';
-import { Region } from 'src/regions/entities/region.entity';
+import { Employee } from 'employees/entities/employee.entity';
+import { Manager } from 'managers/entities/manager.entity';
+import { Region } from 'regions/entities/region.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

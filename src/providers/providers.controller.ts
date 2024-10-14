@@ -2,11 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, NotFoundException, U
 import { ProvidersService } from './providers.service';
 import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
-import { UserData } from 'src/auth/decorators/user.decorator';
-import { User } from 'src/auth/entities/user.entity';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { ROLES } from 'src/auth/constans/roles.constants';
-import { ApiAuth } from 'src/auth/decorators/api.decorator';
+import { UserData } from 'auth/decorators/user.decorator';
+import { User } from 'auth/entities/user.entity';
+import { Auth } from 'auth/decorators/auth.decorator';
+import { ROLES } from 'auth/constans/roles.constants';
+import { ApiAuth } from 'auth/decorators/api.decorator';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiAuth()

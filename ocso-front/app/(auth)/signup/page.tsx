@@ -16,7 +16,7 @@ export default function SignupPage() {
       <div className="flex flex-col">
         <Button className="w-full bg-[#FBB110] hover:bg-[#E6A100] text-black">Iniciar seción</Button>
       </div>
-      <p>
+      <p className="text-center">
         ¿Ya tienes cuenta? <Link href="/login" className="text-[#E70020] hover:text-gray-400">Inicia sesión</Link>
       </p>
     </div>

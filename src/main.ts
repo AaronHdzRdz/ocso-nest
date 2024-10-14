@@ -5,6 +5,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: 'http://localhost:3000', // Asegúrate de que este sea el origen correcto
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+    credentials: true, // Si usas cookies o tokens de autenticación
+  });
+
   const config = new DocumentBuilder()
     .setTitle('Ocso API')
     .setDescription('Api for ocso management')
@@ -18,6 +25,6 @@ async function bootstrap() {
     forbidNonWhitelisted: true,
     transform: true,
   }));
-  await app.listen(3000);
+  await app.listen(4000);
 }
 bootstrap();

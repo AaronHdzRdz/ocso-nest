@@ -2,9 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { RegionsService } from './regions.service';
 import { CreateRegionDto } from './dto/create-region.dto';
 import { UpdateRegionDto } from './dto/update-region.dto';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { ROLES } from 'src/auth/constans/roles.constants';
-import { ApiAuth } from 'src/auth/decorators/api.decorator';
+import { Auth } from 'auth/decorators/auth.decorator';
+import { ROLES } from 'auth/constans/roles.constants';
+import { ApiAuth } from 'auth/decorators/api.decorator';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiAuth()

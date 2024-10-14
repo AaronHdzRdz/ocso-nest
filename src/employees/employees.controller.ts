@@ -4,10 +4,10 @@ import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { Employee } from './entities/employee.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ROLES } from 'src/auth/constans/roles.constants';
-import { Auth } from 'src/auth/decorators/auth.decorator';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { ApiAuth } from 'src/auth/decorators/api.decorator';
+import { Auth } from 'auth/decorators/auth.decorator';
+import { ApiAuth } from 'auth/decorators/api.decorator';
+import { ROLES } from 'auth/constans/roles.constants';
 
 @ApiAuth()
 @ApiTags("Employees")

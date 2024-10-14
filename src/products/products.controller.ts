@@ -2,9 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, Valid
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { ROLES } from 'src/auth/constans/roles.constants';
-import { ApiAuth } from 'src/auth/decorators/api.decorator';
+import { Auth } from 'auth/decorators/auth.decorator';
+import { ROLES } from 'auth/constans/roles.constants';
+import { ApiAuth } from 'auth/decorators/api.decorator';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiAuth()

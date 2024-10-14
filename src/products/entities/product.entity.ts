@@ -1,4 +1,4 @@
-import { Provider } from 'src/providers/entities/provider.entity';
+import { Provider } from 'providers/entities/provider.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity()
