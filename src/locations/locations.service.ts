@@ -24,6 +24,7 @@ export class LocationsService {
       locationId: id
     });
     if (!location) throw new NotFoundException(`Location #${id} not found`);
+    return location;
   }
 
   update(id: number, updateLocationDto: UpdateLocationDto) {

@@ -12,10 +12,10 @@ async function bootstrap() {
     }
   });
   app.enableCors({
-    origin: 'http://localhost:3000', // Asegúrate de que este sea el origen correcto
+    origin: 'http://127.0.0.1:3000', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Accept, Authorization',
-    credentials: true, // Si usas cookies o tokens de autenticación
+    credentials: true, 
   });
   app.use(cookieParser())
   const config = new DocumentBuilder()
