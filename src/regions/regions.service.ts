@@ -10,7 +10,7 @@ export class RegionsService {
   constructor(
     @InjectRepository(Region)
     private regionRepository: Repository<Region>
-  ) {}
+  ) { }
   create(createRegionDto: CreateRegionDto) {
     return this.regionRepository.save(createRegionDto);
   }
@@ -20,14 +20,15 @@ export class RegionsService {
   }
 
   findOne(id: number) {
-    const region= this.regionRepository.findOneBy({
-      regionId: id
+    const region = this.regionRepository.findOneBy({
+      regionId: id,
     });
-    if (!region) throw new NotFoundException(`Region #${id} not found`);
+    if (!region) throw new NotFoundException("Region not found");
+    return region;
   }
 
   async update(id: number, updateRegionDto: UpdateRegionDto) {
-    const region= await this.regionRepository.preload({
+    const region = await this.regionRepository.preload({
       regionId: id,
       ...updateRegionDto,
     });

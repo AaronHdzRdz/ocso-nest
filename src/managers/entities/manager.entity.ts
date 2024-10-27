@@ -6,25 +6,24 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "ty
 export class Manager {
     @PrimaryGeneratedColumn('uuid')
     managerId: string;
-    
     @Column('text')
     managerName: string;
-    
     @Column('float')
     managerSalary: number;
-    
-    @Column('text',{
-        unique: true,
+    @Column('text', {
+        unique: true
     })
     managerEmail: string;
-    
     @Column('text')
     managerPhoneNumber: string;
-    
+
     @OneToOne(() => Location)
+    @JoinColumn({
+        name: "locationId"
+    })
     location: Location;
-    
-    @OneToOne(()=>User)
+
+    @OneToOne(() => User)
     @JoinColumn({
         name: "userId"
     })

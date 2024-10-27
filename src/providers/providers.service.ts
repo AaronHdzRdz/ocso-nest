@@ -10,7 +10,7 @@ export class ProvidersService {
   constructor(
     @InjectRepository(Provider)
     private providersRepository: Repository<Provider>,
-  ){}
+  ) { }
   create(createProviderDto: CreateProviderDto) {
     return this.providersRepository.save(createProviderDto);
   }
@@ -20,14 +20,14 @@ export class ProvidersService {
   }
 
   findOne(id: string) {
-    return this,this.providersRepository.findOne({
+    return this, this.providersRepository.findOne({
       where: {
         providerId: id,
       }
     });
   }
 
-  findOneByName(name: string){
+  findOneByName(name: string) {
     const provider = this.providersRepository.findBy({
       providerName: Like(`%${name}%`)
     })
@@ -36,7 +36,7 @@ export class ProvidersService {
   }
 
   async update(id: string, updateProviderDto: UpdateProviderDto) {
-    const product =await this.providersRepository.preload({
+    const product = await this.providersRepository.preload({
       providerId: id,
       ...updateProviderDto
     });
@@ -45,7 +45,10 @@ export class ProvidersService {
 
   remove(id: string) {
     this.providersRepository.delete({
-      providerId: id,
-    });
+      providerId: id
+    })
+    return {
+      message: "Provider deleted"
+    }
   }
 }
