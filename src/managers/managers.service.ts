@@ -1,22 +1,26 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateManagerDto } from './dto/create-manager.dto';
-import { UpdateManagerDto } from './dto/update-manager.dto';
-import { Repository } from 'typeorm';
-import { Manager } from './entities/manager.entity';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { CreateManagerDto } from "./dto/create-manager.dto";
+import { UpdateManagerDto } from "./dto/update-manager.dto";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Manager } from "./entities/manager.entity";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class ManagersService {
   constructor(
     @InjectRepository(Manager)
     private managerRepository: Repository<Manager>
-  ) { }
+  ) {}
   create(createManagerDto: CreateManagerDto) {
     return this.managerRepository.save(createManagerDto);
   }
 
   findAll() {
-    return this.managerRepository.find();
+    return this.managerRepository.find({
+      relations: {
+        location: true,
+      },
+    });
   }
 
   findOne(id: string) {
@@ -25,23 +29,23 @@ export class ManagersService {
       relations: {
         location: true,
         user: true,
-      }
-    })
-    if (!manager) throw new NotFoundException("No manager found")
+      },
+    });
+    if (!manager) throw new NotFoundException("No manager found");
     return manager;
   }
 
   async update(id: string, updateManagerDto: UpdateManagerDto) {
-    const manager = await this.managerRepository.preload({
+    const managerToUpdate = await this.managerRepository.preload({
       managerId: id,
       ...updateManagerDto,
     });
-    return this.managerRepository.save(manager);
+    return this.managerRepository.save(managerToUpdate);
   }
 
   remove(id: string) {
     return this.managerRepository.delete({
-      managerId: id
+      managerId: id,
     });
   }
 }
