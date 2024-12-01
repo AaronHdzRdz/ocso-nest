@@ -17,7 +17,7 @@ import { AwsModule } from "./aws/aws.module";
       host: process.env.host,
       port: +process.env.port,
       username: "postgres",
-      password: process.env.pass,
+      password: "TheBestPassword",
       database: process.env.name,
       entities: [],
       autoLoadEntities: true,
